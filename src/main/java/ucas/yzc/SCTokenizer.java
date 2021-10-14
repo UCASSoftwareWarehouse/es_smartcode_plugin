@@ -1,11 +1,12 @@
-import java.io.IOException;
-
+package ucas.yzc;
 
 import org.antlr.v4.runtime.Token;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
+
+import java.io.IOException;
 
 public final class SCTokenizer extends Tokenizer {
 

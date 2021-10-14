@@ -1,3 +1,5 @@
+package ucas.yzc;
+
 import org.apache.lucene.analysis.Tokenizer;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;

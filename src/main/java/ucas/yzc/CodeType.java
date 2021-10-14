@@ -1,3 +1,5 @@
+package ucas.yzc;
+
 public enum CodeType {
     Python("python"), Golang("golang"), Java("java");
 

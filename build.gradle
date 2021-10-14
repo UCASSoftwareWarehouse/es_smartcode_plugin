@@ -29,7 +29,7 @@ compileJava {
     targetCompatibility = JavaVersion.VERSION_12
 }
 
-group ''
+group 'ucas.yzc'
 version '0.1'
 
 repositories {
@@ -39,7 +39,7 @@ repositories {
 esplugin {
     name 'essc-plugin'
     description 'A script for finding documents that match a term a certain number of times'
-    classname 'SCPlugin'
+    classname 'ucas.yzc.SCPlugin'
     // classname 'SCPlugin'
     licenseFile rootProject.file('LICENSE.txt')
     noticeFile rootProject.file('NOTICE.txt')

@@ -1,6 +1,11 @@
-import golexer.GoLexer;
-import org.antlr.v4.runtime.*;
-import pythonlexer.Python3Lexer;
+package ucas.yzc;
+
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.Token;
+import ucas.yzc.golexer.GoLexer;
+import ucas.yzc.pythonlexer.Python3Lexer;
 
 import java.io.IOException;
 import java.io.Reader;
