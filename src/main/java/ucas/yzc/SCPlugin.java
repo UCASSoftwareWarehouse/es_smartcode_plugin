@@ -16,6 +16,7 @@ public class SCPlugin extends Plugin implements AnalysisPlugin {
         extra.put("smartcode_golang_tokenizer", SCTokenizerFactories.SCGolangTokenizerFactory::new);
         extra.put("smartcode_java_tokenizer", SCTokenizerFactories.SCJavaTokenizerFactory::new);
         extra.put("smartcode_python_tokenizer", SCTokenizerFactories.SCPythonTokenizerFactory::new);
+        extra.put("smartcode_tokenizer", SCTokenizerFactory::new);
         return extra;
     }
 }

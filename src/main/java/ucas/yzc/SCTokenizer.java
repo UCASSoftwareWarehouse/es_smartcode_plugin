@@ -10,13 +10,13 @@ import java.io.IOException;
 
 public final class SCTokenizer extends Tokenizer {
 
-    private SCTokenizerImpl scanner;
-
-    private final CodeType codeType;
-
-    private int skippedPositions;
-
     private final static int maxTokenLength = 1000000;
+    private final CodeType codeType;
+    private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
+    private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
+    private final PositionIncrementAttribute posIncrAtt = addAttribute(PositionIncrementAttribute.class);
+    private SCTokenizerImpl scanner;
+    private int skippedPositions;
 
     public SCTokenizer(CodeType codeType) {
         super();
@@ -28,15 +28,12 @@ public final class SCTokenizer extends Tokenizer {
         this.scanner = new SCTokenizerImpl(input, codeType);
     }
 
-    private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
-    private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
-    private final PositionIncrementAttribute posIncrAtt = addAttribute(PositionIncrementAttribute.class);
     @Override
     public final boolean incrementToken() throws IOException {
         clearAttributes();
         skippedPositions = 0;
 
-        while(true) {
+        while (true) {
             Token token = scanner.getNextToken();
 
             if (token.getType() == Token.EOF) {
@@ -46,9 +43,9 @@ public final class SCTokenizer extends Tokenizer {
             String tokenText = token.getText();
             if (tokenText.length() <= maxTokenLength) {
                 final int start = token.getStartIndex();
-                posIncrAtt.setPositionIncrement(skippedPositions+1);
+                posIncrAtt.setPositionIncrement(skippedPositions + 1);
                 termAtt.append(tokenText);
-                offsetAtt.setOffset(correctOffset(start), correctOffset(start+termAtt.length()));
+                offsetAtt.setOffset(correctOffset(start), correctOffset(start + termAtt.length()));
                 return true;
             } else
                 skippedPositions++;
@@ -58,7 +55,7 @@ public final class SCTokenizer extends Tokenizer {
     @Override
     public final void end() throws IOException {
         super.end();
-        posIncrAtt.setPositionIncrement(posIncrAtt.getPositionIncrement()+skippedPositions);
+        posIncrAtt.setPositionIncrement(posIncrAtt.getPositionIncrement() + skippedPositions);
     }
 
     @Override

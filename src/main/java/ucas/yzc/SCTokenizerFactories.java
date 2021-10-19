@@ -12,6 +12,7 @@ public class SCTokenizerFactories {
         public SCGolangTokenizerFactory(IndexSettings indexSettings, Environment environment, String name, Settings settings) {
             super(indexSettings, settings, name);
         }
+
         @Override
         public Tokenizer create() {
             return new SCTokenizer(CodeType.Golang);
@@ -22,6 +23,7 @@ public class SCTokenizerFactories {
         public SCJavaTokenizerFactory(IndexSettings indexSettings, Environment environment, String name, Settings settings) {
             super(indexSettings, settings, name);
         }
+
         @Override
         public Tokenizer create() {
             return new SCTokenizer(CodeType.Java);
@@ -32,6 +34,7 @@ public class SCTokenizerFactories {
         public SCPythonTokenizerFactory(IndexSettings indexSettings, Environment environment, String name, Settings settings) {
             super(indexSettings, settings, name);
         }
+
         @Override
         public Tokenizer create() {
             return new SCTokenizer(CodeType.Python);

@@ -34,16 +34,17 @@ public class SCTokenizerImpl {
         this.charStream = CharStreams.fromReader(reader);
         switch (codeType) {
             case Python:
-                this.lexer = new Python3Lexer(this.charStream); return;
+                this.lexer = new Python3Lexer(this.charStream);
+                return;
             case Golang:
-                this.lexer = new GoLexer(this.charStream); return;
             case Java:
-                this.lexer = new GoLexer(this.charStream); return;
+                this.lexer = new GoLexer(this.charStream);
+                return;
         }
     }
 
     public Token getNextToken() throws IOException {
-        if(this.charStream == null || this.lexer == null) {
+        if (this.charStream == null || this.lexer == null) {
             initLexer();
         }
         return this.lexer.nextToken();

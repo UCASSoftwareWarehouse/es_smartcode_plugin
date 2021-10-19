@@ -5,6 +5,7 @@ public enum CodeType {
 
 
     private final String codeTypeStr;
+
     CodeType(String codeTypeStr) {
         this.codeTypeStr = codeTypeStr;
     }
